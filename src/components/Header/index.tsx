@@ -4,8 +4,8 @@ import './styles.css'
 const Loading: React.FC = () => {
 	return (
 		<div className='header'>
-			<h1>Consulta Ciudadana </h1>
-			<h2>Rancagua 2019</h2>
+			<img src='assets/header_bg.jpg' />
+			<h2 className='pb-2'>RANCAGUA 2019</h2>
 		</div>
 	)
 }
