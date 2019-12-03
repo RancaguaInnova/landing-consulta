@@ -4,7 +4,7 @@ import './styles.css'
 const Map: React.FC = () => {
 	return (
 		<div className='Map mt-5'>
-			<h4>Horario y lugares de votación</h4>
+			<h4 className='title'>HORARIO Y LUGARES DE VOTACIÓN</h4>
 			<p>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipiscing, elit varius erat justo cras, urna nostra
