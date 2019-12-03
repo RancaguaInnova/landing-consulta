@@ -5,6 +5,11 @@ import Vote from 'components/Vote'
 import './styles.css'
 
 const Home: React.FC = () => {
+
+	function openForm(){
+		window.open("https://rancagua.cl/voluntarios", "_blank"); 
+
+	}
 	return (
 		<div className='container mt-4'>
 			<p>
@@ -24,7 +29,7 @@ const Home: React.FC = () => {
 					et non nascetur facilisis condimentum tortor phasellus, scelerisque mollis penatibus id turpis metus
 					dis pretium.
 				</p>
-				<button className='btn btn-danger btn-lg'>Inscripción de voluntarios</button>
+				<button className='btn btn-danger btn-lg' onClick={openForm}>Inscripción de voluntarios</button>
 			</div>
 		</div>
 	)
