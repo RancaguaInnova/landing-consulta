@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import { Router, RouteComponentProps } from '@reach/router'
 
 import Header from 'components/Header'
+import Footer from 'components/Footer'
 import Loading from 'components/Loading'
 
 import './App.css'
@@ -17,6 +18,7 @@ const App: React.FC = () => {
 					<RouterPage path='/' pageComponent={<Home />} default />
 				</Router>
 			</Suspense>
+			<Footer />
 		</div>
 	)
 }
