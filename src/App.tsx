@@ -7,9 +7,6 @@ import Loading from 'components/Loading'
 import './App.css'
 
 const Home = React.lazy(() => import('pages/Home'))
-const Events = React.lazy(() => import('pages/Events'))
-const News = React.lazy(() => import('pages/News'))
-const Services = React.lazy(() => import('pages/Services'))
 
 const App: React.FC = () => {
 	return (
@@ -18,9 +15,6 @@ const App: React.FC = () => {
 			<Suspense fallback={<Loading />}>
 				<Router>
 					<RouterPage path='/' pageComponent={<Home />} default />
-					<RouterPage path='/eventos' pageComponent={<Events />} />
-					<RouterPage path='/noticias' pageComponent={<News />} />
-					<RouterPage path='/servicios' pageComponent={<Services />} />
 				</Router>
 			</Suspense>
 		</div>
