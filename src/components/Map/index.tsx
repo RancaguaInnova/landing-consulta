@@ -17,9 +17,9 @@ const Map:  React.FC<IProps> = ({center={lat:-34.17083,lng:-70.74444},zoom=13}:I
 	return (
 		<div className='Map mt-5'>
 		<div>
-    	<h4>Horario y lugares de votación</h4>
+			<h4 className='title'>HORARIO Y LUGARES DE VOTACIÓN</h4>
 			<p>
-		
+	
 					Lorem ipsum dolor sit amet consectetur adipiscing, elit varius erat justo cras, urna nostra
 					convallis consequat molestie. In vitae cum quam taciti at ac cursus donec aliquet, tincidunt auctor
 					et non nascetur facilisis condimentum tortor phasellus, scelerisque mollis penatibus id turpis metus
