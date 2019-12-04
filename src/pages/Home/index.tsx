@@ -53,7 +53,7 @@ const Home: React.FC = () => {
         <h5 className="margin">
           En esta Consulta Ciudadana cada persona tendrá 3 votos a disposición:
         </h5>
-        <p>
+        <p className="justify">
           <div className="TextoIz">
             Un primer voto de caracter Institucional que contiene la siguientes preguntas:
             <img src="assets/voto1.jpeg" alt="voto1" className="imagen"></img>
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         <hr />
         <div className="mt-5">
           <h4 className="title">INSCRIPCIÓN DE VOLUNTARIOS</h4>
-          <p>
+          <p className="justify">
             Para llevar adelante esta Consulta Ciudadana se requiere de mucho apoyo de parte de la
             comunidad y parte fundamental de este apoyo es el trabajo de los voluntarios y
             voluntarias. Tú puedes ser parte importante de este proceso, guiando a todas y todos los
