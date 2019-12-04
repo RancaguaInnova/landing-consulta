@@ -10,8 +10,9 @@ const LocalesMap = props => {
         <div>
           <h4 className="title">HORARIO Y LUGARES DE VOTACIÓN</h4>
           <p>
-            Esta consulta ciudadana ofrece una alternativa de participación democrática vinculante para la construcción de una nueva Constitución, asegurando la mayor representatividad de todos los actores de la ciudadanía y garantizando su participación.
-  Es por esto que invitamos a toda la ciudadania a participar de manera simultánea y en todo el territorio nacional, el día domingo 15 de diciembre de 2019, entre las 08:00 a 18:00 horas, en los diferentes locales de votación, que podrás consultar en la tabla o en el mapa a continuación.
+            Esta Consulta Ciudadana se realizará el domingo 15 de diciembre entre las 8:00 hrs. y las 18:00 hrs.
+  La Municipalidad de Rancagua ofrece una alternativa de participación democrática y con el objetivo de simplificar el proceso de votación a los vecinos es que para votar solo es necesario dirigirse a cualquiera de los siguientes XX puntos de votación habilitados para estos efectos:
+  
           </p>
         </div>
         {/* <img className='img-fluid' src='assets/mapa.png' /> */}

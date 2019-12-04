@@ -4,14 +4,11 @@ import './styles.css'
 const Bases: React.FC = () => {
 	return (
 		<div className='mt-5'>
-			<h4 className='title'>BASES</h4>
+			<h4 className='title'>ORDENANZA / REGLAMENTO</h4>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipiscing, elit varius erat justo cras, urna nostra convallis
-				consequat molestie. In vitae cum quam taciti at ac cursus donec aliquet, tincidunt auctor et non
-				nascetur facilisis condimentum tortor phasellus, scelerisque mollis penatibus id turpis metus dis
-				pretium.
+			Con fecha XXX de diciembre de 2019 el Concejo Municipal aprobó por unanimidad la Ordenanza Nº XXX que regula la siguiente Consulta Ciudadana.
 			</p>
-			<button className='btn btn-lg btn-danger'>Descargar las bases</button>
+			<button className='btn btn-lg btn-danger'>Descargar la ordenanza</button>
 		</div>
 	)
 }

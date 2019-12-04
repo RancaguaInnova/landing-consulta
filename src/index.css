@@ -45,3 +45,19 @@ code {
 	margin-left: 30px;
 	margin-top: 10px;	
 }
+.justify{
+    text-align: justify;
+    margin-top:30px ;
+}
+.TextoIz{
+	text-align: left !important;
+}
+.imagen{
+	width: 80%;
+}
+.Centro{
+	text-align: center !important;
+}
+.margin{
+	margin-top: 20px;
+}
