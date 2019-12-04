@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Tabletop from 'tabletop';
+import React, { Component } from "react"
+import Tabletop from "tabletop"
 
 class GoogleSheetsInfo extends Component {
   constructor() {
@@ -10,25 +10,19 @@ class GoogleSheetsInfo extends Component {
   }
   componentDidMount() {
     Tabletop.init({
-      key: '1fCHK2xikZxdPSTMJ1Lx1hbDnZ_mwmgkNdItAzUmso-Y',
+      key: "1fCHK2xikZxdPSTMJ1Lx1hbDnZ_mwmgkNdItAzUmso-Y",
       callback: googleData => {
-        console.log('google sheet data --->', googleData)
         this.setState({
-            data: googleData
-          })
+          data: googleData
+        })
       },
       simpleSheet: true
     })
   }
 
   render() {
-    console.log('updated state --->', this.state)
-    return (
-      <div className="App">
-    
-      </div>
-    );
+    return <div className="App"></div>
   }
 }
 
-export default GoogleSheetsInfo;
+export default GoogleSheetsInfo
