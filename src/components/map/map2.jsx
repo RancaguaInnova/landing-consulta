@@ -21,7 +21,7 @@ function Map() {
     const [infoOpen, setInfoOpen] = useState(false);
 
     const { isLoaded } = useLoadScript({
-       googleMapsApiKey:'AIzaSyCcokEe3oJDHWv2xTBXHRk0cUxwaUzvyaQ'
+       googleMapsApiKey:'AIzaSyAmQ7APQAvy5cbGkGba-KZNT_VHHlLddeI'
 
     });
 

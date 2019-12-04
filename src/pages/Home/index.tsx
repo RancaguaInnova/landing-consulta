@@ -7,7 +7,7 @@ import Footer from "components/Footer";
 import "./styles.css";
 import dotenv from "dotenv";
 import { Redirect } from 'react-router-dom'
-dotenv.config();
+import { Router, Link } from "@reach/router";
 
 const Home: React.FC = () => {
   function openForm() {
@@ -100,9 +100,11 @@ console.log("hola")
             vecinos, te invitamos a inscribierte en el siguiente link:
           </p>
           <div>
-            <button className="btn btn-danger btn-lg" onClick={openForm}>
+          <Link to="voluntarios">
+            <button className="btn btn-danger btn-lg" >
               Inscripción de voluntarios
             </button>
+            </Link>
           </div>
         </div>
       </div>
