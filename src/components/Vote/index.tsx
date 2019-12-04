@@ -11,7 +11,7 @@ const Vote: React.FC = () => {
 					width='100%'
 				/>
 				<div className='card-body'>
-					<h5 className='card-title'>INSTITUCIONAL</h5>
+					<h4 className='card-title'>INSTITUCIONAL</h4>
 					<p className='card-text'>
 						Integer ante fringilla pharetra libero sagittis ullamcorper metus iaculis habitant, senectus
 						vivamus aptent vitae volutpat aenean massa eget, conubia laoreet feugiat eros lectus vehicula
@@ -28,7 +28,7 @@ const Vote: React.FC = () => {
 					width='100%'
 				/>
 				<div className='card-body'>
-					<h5 className='card-title'>SOCIAL</h5>
+					<h4 className='card-title'>SOCIAL</h4>
 					<p className='card-text'>
 						Integer ante fringilla pharetra libero sagittis ullamcorper metus iaculis habitant, senectus
 						vivamus aptent vitae volutpat aenean massa eget, conubia laoreet feugiat eros lectus vehicula
@@ -45,7 +45,7 @@ const Vote: React.FC = () => {
 					width='100%'
 				/>
 				<div className='card-body'>
-					<h5 className='card-title'>COMUNAL</h5>
+					<h4 className='card-title'>COMUNAL</h4>
 					<p className='card-text'>
 						Integer ante fringilla pharetra libero sagittis ullamcorper metus iaculis habitant, senectus
 						vivamus aptent vitae volutpat aenean massa eget, conubia laoreet feugiat eros lectus vehicula

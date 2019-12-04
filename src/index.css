@@ -8,7 +8,8 @@ body {
 
 .title {
 	font-weight: bold;
-	color: #cb1d49;
+	color: #213D63;
+	font-size: 1.5rem;
 }
 
 .btn-danger {
@@ -16,7 +17,31 @@ body {
 	background-color: #cb1d49;
 	border-color: #cb1d49;
 }
+.card-title{
+	color: #213D63;
+}
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+.tituloPlace{
+	color: #cb1d49;
+
+}
+.textoMarker{
+	color: #213D63;
+	padding-left: 10px;
+
+}
+.infoMarker{
+	font-size: 1.1rem;
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 10px;	
+}
+.infoMarkerMap{
+	font-size: 1.1rem;
+	text-align: center;
+	margin-left: 30px;
+	margin-top: 10px;	
 }
