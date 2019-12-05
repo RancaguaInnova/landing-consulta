@@ -1,15 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .title {
   font-weight: bold;
-  color: #213d63;
+  color: #cb1d49;
   font-size: 1.5rem;
+  text-align: center !important;
+  text-transform: uppercase;
 }
 
 .btn-danger {
@@ -22,7 +25,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 .tituloPlace {
   color: #cb1d49;
@@ -53,9 +57,13 @@ code {
 }
 .imagen {
   width: 80%;
+  margin: 0 auto;
 }
 .Centro {
   text-align: center !important;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 .margin {
   margin-top: 20px;

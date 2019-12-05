@@ -9,6 +9,7 @@ const Vote: React.FC = () => {
         <img
           src="http://static.t13.cl/images/original/2017/12/1513090211-facsimil-presi-segunda-pdf-page-001.jpg"
           width="100%"
+          className='images'
         />
         <div className="card-body">
           <h4 className="card-title">INSTITUCIONAL</h4>
@@ -45,6 +46,7 @@ const Vote: React.FC = () => {
         <img
           src="http://static.t13.cl/images/original/2017/12/1513090211-facsimil-presi-segunda-pdf-page-001.jpg"
           width="100%"
+          
         />
         <div className="card-body">
           <h4 className="card-title">COMUNAL</h4>

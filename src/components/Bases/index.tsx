@@ -5,7 +5,7 @@ const Bases: React.FC = () => {
   return (
     <div className="mt-5">
       <h4 className="title">ORDENANZA / REGLAMENTO</h4>
-      <p className="justify">
+      <p className="Centro">
         Con fecha XXX de diciembre de 2019 el Concejo Municipal aprobó por unanimidad la Ordenanza
         Nº XXX que regula la siguiente Consulta Ciudadana.
       </p>

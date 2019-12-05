@@ -11,9 +11,9 @@ const Home: React.FC = () => {
     <div>
       <Header />
 
-      <div className="container mt-4 justify">
-        <p className="justify">
-          La Consulta Ciudadana es un mecanismo de participación ciudadana contemplada en el
+      <div className="container mt-4 Centro">
+        <p className="Centro">
+          <b>La Consulta Ciudadana</b> es un mecanismo de participación ciudadana contemplada en el
           artículo 73 de la Ley N° 18.575, sobre Bases Generales de la Administración del Estado,
           que opera como un espacio para invitar a las personas a participar e incorporar sus
           opiniones para el mejoramiento de la gestión pública. Se configura como una herramienta
@@ -24,23 +24,23 @@ const Home: React.FC = () => {
           respuesta de la autoridad que incluya las respuestas y compromisos derivados de los
           planteamientos surgidos durante la consulta.
         </p>
-        <p className="justify">
+        <p className="Centro">
           La Asociación Chilena de Municipalidades (AChM) fue mandatado por los alcaldes,
           alcaldesas, concejales y concejalas del país para realizar una Consulta Nacional el día 15
           de diciembre en busca de solución a los temas que está demandando la ciudadanía en un
           proceso transparente y democrático. La Ilustre Municipalidad de Rancagua no se quiso
           restar de este proceso y adhirió a esta consulta.
         </p>
-        <p className="justify">
-          <h4 className="title Centro">INFORMACIÓN IMPORTANTE</h4>
-          <p className="justify">
+        <p className="Centro">
+        <h4 className="title">INFORMACIÓN IMPORTANTE</h4>
+          <p className="Centro">
             Para esta consulta podrán votar las personas que tengan entre 14 y 18 años previo
             registro en el lugar de votación. Para los mayores de edad será requisito contar con
             domicilio electoral en Rancagua proporcionado por el Servicio Electoral de Chile
             (SERVEL) La Consulta Ciudadana en Rancagua se realizará en forma presencial con registro
             y voto digital.
           </p>
-          <p className="justify">
+          <p className="Centro">
             El registro y voto digital estará a cargo de un proveedor de software que cumple con los
             estándares de seguridad que la AChM recomienda para estos efectos y permite que las
             personas que deseen participar solo deben dirigirse a cualquiera de los lugares de
@@ -50,15 +50,14 @@ const Home: React.FC = () => {
             electrónico en el mismo lugar.
           </p>
         </p>
-        <h5 className="margin">
-          En esta Consulta Ciudadana cada persona tendrá 3 votos a disposición:
-        </h5>
-        <p className="justify">
-          <div className="TextoIz">
+        <h4 className="title">En esta Consulta Ciudadana cada persona tendrá 3 votos a disposición</h4>
+      
+        <p className="Centro">
+          <div >
             Un primer voto de caracter Institucional que contiene la siguientes preguntas:
             <img src="assets/voto1.jpeg" alt="voto1" className="imagen"></img>
           </div>
-          <div className="TextoIz">
+          <div >
             Un segundo voto de caracter Social que contiene las siguientes preguntas:
             <img src="assets/voto2.jpeg" alt="voto2" className="imagen"></img>
           </div>
@@ -71,8 +70,8 @@ const Home: React.FC = () => {
         <Map />
         <hr />
         <div className="mt-5">
-          <h4 className="title">INSCRIPCIÓN DE VOLUNTARIOS</h4>
-          <p className="justify">
+          <h4 className="title">VOLUNTARIOS</h4>
+          <p className="Centro">
             Para llevar adelante esta Consulta Ciudadana se requiere de mucho apoyo de parte de la
             comunidad y parte fundamental de este apoyo es el trabajo de los voluntarios y
             voluntarias. Tú puedes ser parte importante de este proceso, guiando a todas y todos los
