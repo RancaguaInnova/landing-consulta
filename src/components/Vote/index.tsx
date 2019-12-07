@@ -1,68 +1,49 @@
-import React from "react"
-import "./styles.css"
+import React from "react";
+import "./styles.css";
 
 const Vote: React.FC = () => {
   return (
     <div>
-      <h4 className="title">CONOCE EL VOTO </h4>
-      <div className="card">
-        <img
-          src="http://static.t13.cl/images/original/2017/12/1513090211-facsimil-presi-segunda-pdf-page-001.jpg"
-          width="100%"
-          className='images'
-        />
+    <h4 className="title">Votos</h4>
+     <p>Durante a consulta se entregarán 3 papeletas:</p>
+     <p></p>
+
+    <div className="card">
         <div className="card-body">
           <h4 className="card-title">INSTITUCIONAL</h4>
           <p className="card-text">
-            Integer ante fringilla pharetra libero sagittis ullamcorper metus iaculis habitant,
-            senectus vivamus aptent vitae volutpat aenean massa eget, conubia laoreet feugiat eros
-            lectus vehicula penatibus semper. Ultricies praesent rhoncus pretium in natoque luctus
-            euismod mi, conubia lectus tempor tincidunt dis leo tristique sociosqu diam, et senectus
-            ornare consequat cubilia quis risus. Nunc et convallis lacus aenean scelerisque quis
-            natoque imperdiet lacinia integer, fames euismod egestas vulputate eget dictumst
-            ultricies luctus commodo.
+            En primer lugar, se deben pronunciar sobre temas institucionales, tales como una nueva constitución y si el voto debe ser voluntario u obligatorio, entre otros.
           </p>
         </div>
-      </div>
-      <div className="card">
         <img
-          src="http://static.t13.cl/images/original/2017/12/1513090211-facsimil-presi-segunda-pdf-page-001.jpg"
+          src="assets/Voto 1 Consulta.png"
           width="100%"
+          className="images"
         />
+      </div>
+      <p></p>
+
+      <div className="card">
         <div className="card-body">
           <h4 className="card-title">SOCIAL</h4>
           <p className="card-text">
-            Integer ante fringilla pharetra libero sagittis ullamcorper metus iaculis habitant,
-            senectus vivamus aptent vitae volutpat aenean massa eget, conubia laoreet feugiat eros
-            lectus vehicula penatibus semper. Ultricies praesent rhoncus pretium in natoque luctus
-            euismod mi, conubia lectus tempor tincidunt dis leo tristique sociosqu diam, et senectus
-            ornare consequat cubilia quis risus. Nunc et convallis lacus aenean scelerisque quis
-            natoque imperdiet lacinia integer, fames euismod egestas vulputate eget dictumst
-            ultricies luctus commodo.
+          En un segundo voto, los vecinos deberán pronunciarse sobre la agenda social, donde deben elegir los tres temas más importantes para resolver.
           </p>
         </div>
+        <img src="assets/Voto 2 Consulta.png" width="100%" />
       </div>
+      <p></p>
       <div className="card">
-        <img
-          src="http://static.t13.cl/images/original/2017/12/1513090211-facsimil-presi-segunda-pdf-page-001.jpg"
-          width="100%"
-          
-        />
         <div className="card-body">
           <h4 className="card-title">COMUNAL</h4>
           <p className="card-text">
-            Integer ante fringilla pharetra libero sagittis ullamcorper metus iaculis habitant,
-            senectus vivamus aptent vitae volutpat aenean massa eget, conubia laoreet feugiat eros
-            lectus vehicula penatibus semper. Ultricies praesent rhoncus pretium in natoque luctus
-            euismod mi, conubia lectus tempor tincidunt dis leo tristique sociosqu diam, et senectus
-            ornare consequat cubilia quis risus. Nunc et convallis lacus aenean scelerisque quis
-            natoque imperdiet lacinia integer, fames euismod egestas vulputate eget dictumst
-            ultricies luctus commodo.
+          Finalmente, en la tercera papeleta, cada municipio deberá instalar los temas de interés local y regional. Este voto es exclusivo de cada comuna.
           </p>
         </div>
+      {/*  <img src="assets/Voto 3 Consulta.png" width="100%" /> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Vote
+export default Vote;
