@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react"
 import Map from "components/map"
 import Bases from "components/Bases"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import Vote from "components/Vote"
-import ReactGA from "react-ga";
-
-
+import { logPageView, logEvent } from "components/analytics"
 
 import "./styles.css"
 import { Link } from "@reach/router"
 
-export const initGA = (trackingID: any) => {
-  ReactGA.initialize(trackingID);
-}
-
 const Home: React.FC = () => {
-
-  useEffect(() => {
-
-    initGA('ua-xxx');
-  });
-  // De forma similar a componentDidMount y componentDidUpdate
-
+  logPageView()
   return (
     <div>
       <Header />
-      <div>  <h2 className="title">Consulta Ciudadana Municipal  Rancagua 2019.</h2></div>
+      <div>
+        {" "}
+        <h2 className="title">Consulta Ciudadana Municipal Rancagua 2019.</h2>
+      </div>
       <div className="container mt-4 Centro">
-        El próximo 15 de diciembre se realizará la histórica Consulta Ciudadana Municipal Rancagua 2019, oportunidad en la que cada rancagüino votará por los temas que considera relevantes para la comuna y el país. Invitamos a todas las vecinas y vecinos mayores de 14 años, que tengan su cédula de identidad y que residan en Rancagua, a participar de este importante y único proceso cívico.
+        El próximo 15 de diciembre se realizará la histórica Consulta Ciudadana Municipal Rancagua
+        2019, oportunidad en la que cada rancagüino votará por los temas que considera relevantes
+        para la comuna y el país. Invitamos a todas las vecinas y vecinos mayores de 14 años, que
+        tengan su cédula de identidad y que residan en Rancagua, a participar de este importante y
+        único proceso cívico.
       </div>
 
       <div className="container mt-4 Centro">
@@ -60,11 +55,11 @@ const Home: React.FC = () => {
         <div>
           <h4 className="title">INFORMACIÓN IMPORTANTE</h4>
           <p className="Centro">
-            Para esta consulta podrán votar las personas que tengan entre 14 y 18 años con domicilio en la comuna de Rancagua, previo
-            registro en el lugar de votación. Para los mayores de edad será requisito contar con
-            domicilio electoral en Rancagua proporcionado por el Servicio Electoral de Chile
-            (SERVEL),según padrón electoral 2017.  La Consulta Ciudadana en Rancagua se realizará en forma presencial con registro
-            y voto digital.
+            Para esta consulta podrán votar las personas que tengan entre 14 y 18 años con domicilio
+            en la comuna de Rancagua, previo registro en el lugar de votación. Para los mayores de
+            edad será requisito contar con domicilio electoral en Rancagua proporcionado por el
+            Servicio Electoral de Chile (SERVEL),según padrón electoral 2017. La Consulta Ciudadana
+            en Rancagua se realizará en forma presencial con registro y voto digital.
           </p>
           <p className="Centro">
             El registro y voto digital estará a cargo de un proveedor de software que cumple con los
@@ -81,8 +76,10 @@ const Home: React.FC = () => {
         <div>
           <h4 className="title">Horarios y locales de votación</h4>
           <p className="Centro">
-            Las vecinas y vecinos de Rancagua podrán ejercer su derecho a voto el día 15 de diciembre, desde las 08:00 a  16:00 horas. En los siguientes locales destinados para este proceso:
-            </p>
+            Las vecinas y vecinos de Rancagua podrán ejercer su derecho a voto el día 15 de
+            diciembre, desde las 08:00 a 16:00 horas. En los siguientes locales destinados para este
+            proceso:
+          </p>
           <p className="TextoIz">
             <table className="table table-striped">
               <thead>
@@ -156,7 +153,7 @@ const Home: React.FC = () => {
                 <tr>
                   <th scope="row">10</th>
                   <td>Poniente</td>
-                  <td>Colegio Leonardo Da Vinci  </td>
+                  <td>Colegio Leonardo Da Vinci </td>
                   <td>Av Provincial 2770, Rancagua</td>
                 </tr>
 
@@ -172,7 +169,6 @@ const Home: React.FC = () => {
                   <td>Centro</td>
                   <td>Colegio República Argentina</td>
                   <td>O'Carrol #850, D-29, Rancagua </td>
-
                 </tr>
 
                 <tr>
@@ -272,14 +268,12 @@ const Home: React.FC = () => {
                   <td>Colegio Virginia Bravo</td>
                   <td>Rinconada la chica ,chacón, Rancagua</td>
                 </tr>
-
               </tbody>
             </table>
           </p>
           <p>
             <Map />
           </p>
-
         </div>
         {/* <div className="Centro">
           <div >
@@ -312,7 +306,12 @@ const Home: React.FC = () => {
           </p>
           <div>
             <Link to="voluntarios">
-              <button className="btn btn-danger btn-lg">Inscripción de voluntarios</button>
+              <button
+                className="btn btn-danger btn-lg"
+                onClick={() => logEvent("voluntarios", "incripcion")}
+              >
+                Inscripción de voluntarios
+              </button>
             </Link>
           </div>
         </div>
