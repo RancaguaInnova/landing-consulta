@@ -4,13 +4,24 @@ import Bases from "components/Bases"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import Vote from "components/Vote"
-//import { initGA, logPageView } from 'components/analytics'
+import ReactGA from "react-ga";
+
+
 
 import "./styles.css"
 import { Link } from "@reach/router"
 
+export const initGA = (trackingID: any) => {
+  ReactGA.initialize(trackingID);
+}
+
 const Home: React.FC = () => {
- // De forma similar a componentDidMount y componentDidUpdate
+
+  useEffect(() => {
+
+    initGA('ua-xxx');
+  });
+  // De forma similar a componentDidMount y componentDidUpdate
 
   return (
     <div>
@@ -266,7 +277,7 @@ const Home: React.FC = () => {
             </table>
           </p>
           <p>
-           <Map />
+            <Map />
           </p>
 
         </div>
