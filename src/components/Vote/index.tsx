@@ -5,14 +5,14 @@ const Vote: React.FC = () => {
   return (
     <div>
     <h4 className="title">Votos</h4>
-     <p>Durante a consulta se entregarán 3 papeletas:</p>
+     <p>Durante la consulta se entregarán 3 papeletas:</p>
      <p></p>
 
     <div className="card">
         <div className="card-body">
           <h4 className="card-title">INSTITUCIONAL</h4>
           <p className="card-text">
-            En primer lugar, se deben pronunciar sobre temas institucionales, tales como una nueva constitución y si el voto debe ser voluntario u obligatorio, entre otros.
+            En primer lugar, se deben pronunciar sobre temas institucionales, tales como una nueva Constitución y si el voto debe ser voluntario u obligatorio, entre otros.
           </p>
         </div>
         <img
