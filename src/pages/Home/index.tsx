@@ -1,13 +1,17 @@
-import React from "react"
+import React, { useState, useEffect } from 'react';
 import Map from "components/map"
 import Bases from "components/Bases"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import Vote from "components/Vote"
+//import { initGA, logPageView } from 'components/analytics'
+
 import "./styles.css"
 import { Link } from "@reach/router"
 
 const Home: React.FC = () => {
+ // De forma similar a componentDidMount y componentDidUpdate
+
   return (
     <div>
       <Header />
@@ -261,6 +265,9 @@ const Home: React.FC = () => {
               </tbody>
             </table>
           </p>
+          <p>
+           <Map />
+          </p>
 
         </div>
         {/* <div className="Centro">
@@ -279,7 +286,7 @@ const Home: React.FC = () => {
 
         <Bases />
         <hr />
-        <Map />*/}
+     */}
         <hr />
         <p></p>
         <div className="mt-5">

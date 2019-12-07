@@ -30,13 +30,14 @@ code {
 }
 .tituloPlace {
   color: #cb1d49;
+  font-size: 1.1rem;
 }
 .textoMarker {
   color: #213d63;
   padding-left: 10px;
+  font-size: 0.8rem;
 }
 .infoMarker {
-  font-size: 1.1rem;
   text-align: left;
   margin-left: 30px;
   margin-top: 10px;

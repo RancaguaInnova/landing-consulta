@@ -99,7 +99,11 @@ function Map() {
               onCloseClick={() => setInfoOpen(false)}
             >
               <div>
-                <h3 className="tituloPlace">{selectedPlace.name}</h3>
+                <h5 className="tituloPlace">{selectedPlace.name}</h5>
+                <div className="infoMarker">
+                <img src="assets/direccion.png" alt="Sector" width="24"></img>
+                <span className="textoMarker">Sector {selectedPlace.sector}</span>
+              </div>
                 <div className="infoMarker">
                   <img src="assets/direccion.png" alt="Dirección" width="24"></img>
                   <span className="textoMarker">{selectedPlace.direccion}</span>
