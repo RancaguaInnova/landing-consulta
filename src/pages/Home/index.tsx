@@ -80,7 +80,7 @@ const Home: React.FC = () => {
             diciembre, desde las 08:00 a 16:00 horas. En los siguientes locales destinados para este
             proceso:
           </p>
-          <p className="TextoIz">
+          <div className="TextoIz">
             <table className="table table-striped">
               <thead>
                 <tr>
@@ -270,28 +270,12 @@ const Home: React.FC = () => {
                 </tr>
               </tbody>
             </table>
-          </p>
-          <p>
+          </div>
+          <div>
             <Map />
-          </p>
-        </div>
-        {/* <div className="Centro">
-          <div >
-            Un primer voto de caracter Institucional que contiene la siguientes preguntas:
-            <img src="assets/voto1.jpeg" alt="voto1" className="imagen"></img>
           </div>
-          <div >
-            Un segundo voto de caracter Social que contiene las siguientes preguntas:
-            <img src="assets/voto2.jpeg" alt="voto2" className="imagen"></img>
-          </div>
-          Un tercer voto de caracter Comunal que contiene las siguientes preguntas:
         </div>
 
-        <hr />
-
-        <Bases />
-        <hr />
-     */}
         <hr />
         <p></p>
         <div className="mt-5">
