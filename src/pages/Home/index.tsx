@@ -5,17 +5,16 @@ import Header from 'components/Header'
 import Footer from 'components/Footer'
 import Vote from 'components/Vote'
 import { logPageView, logEvent } from 'components/analytics'
-
+import getPlaces from 'components/map/getPlaces'
 import './styles.css'
 import { Link } from '@reach/router'
-
+import _sortBy from 'lodash/sortBy'
 const Home: React.FC = () => {
 	logPageView()
 	return (
 		<div>
 			<Header />
 			<div>
-				{' '}
 				<h2 className='title'>Consulta Ciudadana Municipal Rancagua 2019.</h2>
 			</div>
 			<div className='container mt-4 Centro'>
@@ -88,200 +87,14 @@ const Home: React.FC = () => {
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope='row'>1</th>
-									<td>Norte</td>
-									<td>Colegio Eduardo de Geyter</td>
-									<td>Italia 582, Rancagua.</td>
-								</tr>
-								<tr>
-									<th scope='row'>2</th>
-									<td>Norte</td>
-									<td>Colegio el Cobre de los Andes</td>
-									<td>Kennedy 1503, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>3</th>
-									<td>Norte</td>
-									<td> Colegio José A Manso de Velasco</td>
-									<td>Chorrillos 1072, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>4</th>
-									<td>Norte</td>
-									<td>Universidad de O`Higgins</td>
-									<td>Av. Bdo. Ohiggins 611, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>5</th>
-									<td>Sur</td>
-									<td>Colegio Pablo Garrido</td>
-									<td>Lord Cochrane 637, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>6</th>
-									<td>Sur</td>
-									<td>Colegio España </td>
-									<td>Almarza 1045, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>7</th>
-									<td>Sur</td>
-									<td>Colegio Marcela Paz</td>
-									<td>Almarza 1029, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>8</th>
-									<td>Sur</td>
-									<td>Escuela Municipal Carlos Miranda </td>
-									<td>Bueras 356-302, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>9</th>
-									<td>Poniente</td>
-									<td>Centro Cultural y Teatro Baquedano</td>
-									<td>Baquedano 445, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>10</th>
-									<td>Poniente</td>
-									<td>Colegio Jean Piaget</td>
-									<td>Veintiuno de Mayo N 340, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>11</th>
-									<td>Poniente</td>
-									<td>Colegio Leonardo Da Vinci </td>
-									<td>Av Provincial 2770, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>12</th>
-									<td>Centro</td>
-									<td>Colegio Moisés Mussa</td>
-									<td> O'Carrol 868, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>13</th>
-									<td>Centro</td>
-									<td>Colegio República Argentina</td>
-									<td>O'Carrol #850, D-29, Rancagua </td>
-								</tr>
-
-								<tr>
-									<th scope='row'>14</th>
-									<td>Centro</td>
-									<td> Liceo Francisco Tello González</td>
-									<td>Estado 635, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>15</th>
-									<td>Centro</td>
-									<td>Liceo Bicentenario Óscar Castro Zúñiga</td>
-									<td>Almarza 410, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>16</th>
-									<td>Centro</td>
-									<td>Instituto Tecnico Minero Bernardo O'Higgins </td>
-									<td>Calle Cuevas 0455, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>17</th>
-									<td>Centro</td>
-									<td>Colegio Aurora de Chile</td>
-									<td>Mac Iver, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>18</th>
-									<td>Centro</td>
-									<td>Colegio Isabel Riquelme</td>
-									<td>Av. Capitán Ramón Freire 810, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>19</th>
-									<td>Centro</td>
-									<td>Colegio Mineral El Teniente</td>
-									<td>Arturo Arancibia 767, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>20</th>
-									<td>Centro</td>
-									<td>Union Comunal de Adulto Mayor</td>
-									<td>Hector Zamorano 419, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>21</th>
-									<td>Oriente</td>
-									<td>Colegio Santa Filomena </td>
-									<td>Los Olivos 1462, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>22</th>
-									<td>Oriente</td>
-									<td>Colegio Manuel Rodríguez</td>
-									<td>Miguel Ramírez 1995, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>23</th>
-									<td>Oriente</td>
-									<td>Colegio Patricio Mekis</td>
-									<td>Juan Martínez de Rozas 658, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>24</th>
-									<td>Oriente</td>
-									<td>Liceo Santa Cruz de Triana </td>
-									<td>Constanza, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>25</th>
-									<td>Oriente</td>
-									<td>Colegio Augusto D'Halmar</td>
-									<td>Av La Compañía, Rancagua</td>
-								</tr>
-								<tr>
-									<th scope='row'>26</th>
-									<td>Oriente</td>
-									<td>Colegio Hermanos Carrera</td>
-									<td>Illanes 0345 Camino La Cruz, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>27</th>
-									<td>Rural</td>
-									<td>Colegio Jose Manuel Balmaceda</td>
-									<td>Av Salvador Allende 3300, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>28</th>
-									<td>Rural</td>
-									<td>Colegio Marta Brunet</td>
-									<td>H-260 391, Rancagua</td>
-								</tr>
-
-								<tr>
-									<th scope='row'>29</th>
-									<td>Rural</td>
-									<td>Colegio Virginia Bravo</td>
-									<td>Rinconada la chica, Chancón, Rancagua</td>
-								</tr>
+								{_sortBy(getPlaces, ['sector', 'name']).map((place: any, index: number) => (
+									<tr key={index}>
+										<th scope='row'>{index + 1}</th>
+										<td>{place.sector}</td>
+										<td>{place.name}</td>
+										<td>{place.direccion}</td>
+									</tr>
+								))}
 							</tbody>
 						</table>
 					</div>
