@@ -251,7 +251,7 @@ const Home: React.FC = () => {
 												<CardContent className={classes.cardContent}>
 													<Typography className={classes.title} color="textSecondary" gutterBottom>
 														<label >Rut</label>
-														<input type="text" className="form-control" id="rut" placeholder="11111111-1" value={rut} onChange={e => setRut(e.target.value)} />
+														<input type="text" className="form-control" id="rut" placeholder="11111111-1" value={rut} onChange={e => setRut(e.target.value)} maxLength={11} />
 													</Typography>
 													<Typography className={classes.textoprimary}>
 														{respuestaConsulta}
