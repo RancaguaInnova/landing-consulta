@@ -14,16 +14,16 @@ const places = [
   },
   {
     id: "2",
-    name: "Colegio el Cobre de los Andes",
+    name: "Colegio el Cobre",
     sector: "Norte",
     place:
-      "https://www.google.com/maps/place/Colegio+el+Cobre+de+los+Andes/@-34.1465092,-70.7433638,17z/data=!3m1!4b1!4m5!3m4!1s0x9663436aeafd840b:0x3bf5eb23675bb0aa!8m2!3d-34.1465137!4d-70.7411751",
+      "https://www.google.cl/maps/place/Colegio+El+Cobre/@-34.1376928,-70.7458,17z/data=!3m1!4b1!4m5!3m4!1s0x966343bcd627fb8f:0x5d01623c13f6ad58!8m2!3d-34.1376928!4d-70.7436113",
 
-    direccion: "Kennedy 1503, Rancagua",
-    telefono: "(72) 225 4527",
+    direccion: "Pedro Luna 1101, Rancagua",
+    telefono: "(72) 276 4486",
     location: {
-      lat: -34.146518,
-      lng: -70.741172
+      lat: -34.1376928,
+      lng: -70.7436113
     }
   },
   {
@@ -404,6 +404,19 @@ const places = [
     location: {
       lat: -34.1550448,
       lng: -70.7354321
+    }
+  },
+  {
+    id: "32",
+    name: "Liceo Industrial Presidente Pedro Aguirre Cerda",
+    sector: "Centro",
+    place: `https://www.google.cl/maps/place/Liceo+Industrial+Presidente+Pedro+Aguirre+Cerda/@-34.1690885,-70.7262211,17z/data=!3m1!4b1!4m5!3m4!1s0x9663435dc7730dcb:0x1d210973463ac890!8m2!3d-34.169093!4d-70.7240324`,
+    direccion:
+      "Avda. Libertador Bernardo O´Higgins 0770, Rancagua, Chile (interior Parque Comunal)",
+    telefono: "9 7995 2439",
+    location: {
+      lat: -34.169093,
+      lng: -70.7240324
     }
   }
 ];

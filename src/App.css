@@ -27,3 +27,10 @@
   height: 100%;
   width: 100vw;
 }
+.linkWhite {
+  color: #09d3ac;
+}
+.margintopbottom {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
