@@ -1,8 +1,8 @@
 import * as firebase from "firebase";
 const config = {
-  apiKey: "AIzaSyA3ey_GjOiiONwDERnMzpdflP0jcpkL4LM",
-  databaseURL: "https://consulta-ciudana.firebaseio.com",
-  projectId: "consulta-ciudana"
+  apiKey: process.env.REACT_APP_APIKEY,
+  databaseURL: process.env.REACT_APP_DATABASEURL,
+  projectId: process.env.REACT_APP_PROJECTID
 };
 firebase.initializeApp(config);
 var db = firebase.database();
