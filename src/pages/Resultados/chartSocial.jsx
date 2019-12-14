@@ -1,14 +1,8 @@
-import React, { Fragment, useState, useEffect } from "react";
-
+import React from "react";
 import { ResponsivePie } from "@nivo/pie";
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
+import _orderBy from "lodash/orderBy";
 
 const MyResponsivePie = props => {
-  const title = props.data.pregunta;
   var data = props.data.respuestas.map(function(item, index) {
     let r = {
       id: item.respuesta,
@@ -17,6 +11,7 @@ const MyResponsivePie = props => {
     };
     return r;
   });
+  data = _orderBy(data, ["value", "label"], ["desc", "asc"]);
 
   return (
     <ResponsivePie

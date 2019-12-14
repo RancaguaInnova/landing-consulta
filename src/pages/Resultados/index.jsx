@@ -1,9 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
-
-import Chart from "./chart";
 import NivoChart from "./nivoChart";
-
-import CharSocial from "./chartSocial";
+import ChartSocial from "./chartSocial";
+import ChartComunal from "./chartComunal";
 import Firebase from "components/FirebaseConfig";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
@@ -20,8 +18,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { purple } from "@material-ui/core/colors";
-import Button from "@material-ui/core/Button";
-
+import _orderBy from "lodash/orderBy";
 const theme = createMuiTheme({
   palette: {
     primary: { main: purple[500] }, // Purple and green play nicely together.
@@ -60,7 +57,8 @@ function a11yProps(index) {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%"
+    width: "100%",
+    padding: 0
   },
   heading: {
     fontSize: theme.typography.pxToRem(12),
@@ -89,6 +87,12 @@ const useStyles = makeStyles(theme => ({
   },
   ExpansionPanelDetails: {
     padding: 0
+  },
+  tabs: {
+    padding: 0
+  },
+  tabPanel: {
+    padding: 0
   }
 }));
 
@@ -104,7 +108,6 @@ const Resultados = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChangeTab = (event, newValue) => {
-    console.log(newValue);
     if (newValue === 0) {
       setExpanded("panel0");
     } else if (newValue === 1) {
@@ -149,7 +152,6 @@ const Resultados = () => {
       .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
           let Votos = doc.data();
-          console.log("Votos", Votos);
           setVotos(Votos);
         });
       })
@@ -213,7 +215,7 @@ const Resultados = () => {
             resultados son los siguientes:
           </div>
         </div>
-        <div>
+        <div className="container mt-5 Centro">
           <ThemeProvider theme={theme}>
             <AppBar position="static" color="default">
               <Tabs
@@ -222,6 +224,7 @@ const Resultados = () => {
                 indicatorColor="secondary"
                 textColor="secondary"
                 variant="fullWidth"
+                className={classes.tabs}
               >
                 <Tab
                   className={classes.tabInstitucional}
@@ -246,7 +249,12 @@ const Resultados = () => {
             index={value}
             onChangeIndex={handleChangeTabIndex}
           >
-            <TabPanel value={value} index={0} dir={theme2.direction}>
+            <TabPanel
+              value={value}
+              index={0}
+              dir={theme2.direction}
+              className={classes.tabPanel}
+            >
               {Place && Place.intitucional && Place.intitucional.length > 0 ? (
                 <div className="minhe">
                   {Place.intitucional.map(function(item, index) {
@@ -265,15 +273,21 @@ const Resultados = () => {
                           </Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                          <div key={index} className="chart">
-                            <NivoChart data={item} />
-                          </div>
                           <div className="container">
                             <div className="row">
+                              <div key={index} className="chart col">
+                                <NivoChart data={item} scheme="set2" />
+                              </div>
+
                               <div className="col">
-                                <p>Tabla de Resultados</p>
-                                <table className="table table-striped table-bordered">
+                                <br />
+                                <table className="table table-striped table-bordered ">
                                   <thead>
+                                    <tr>
+                                      <th scope="col" colSpan={3}>
+                                        Tabla de Resultados
+                                      </th>
+                                    </tr>
                                     <tr>
                                       <th scope="col">Respuesta</th>
                                       <th scope="col">%</th>
@@ -281,12 +295,24 @@ const Resultados = () => {
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    {item.respuestas.map(function(
-                                      res,
-                                      indexRes
-                                    ) {
+                                    {_orderBy(
+                                      item.respuestas,
+                                      [
+                                        "porcentaje",
+                                        "numeroVotos",
+                                        "respuesta"
+                                      ],
+                                      ["desc", "desc", "asc"]
+                                    ).map(function(res, indexRes) {
                                       return (
-                                        <tr key={indexRes}>
+                                        <tr
+                                          key={indexRes}
+                                          className={
+                                            indexRes === 0
+                                              ? "table-success font-weight-bold"
+                                              : ""
+                                          }
+                                        >
                                           <td>{res.respuesta}</td>
                                           <td className="tdWidth">
                                             {res.porcentaje} %
@@ -315,16 +341,31 @@ const Resultados = () => {
                   {Place.social.map(function(item, index) {
                     return (
                       <div key={index}>
-                        <div className="row"> {item.pregunta}</div>
+                        <div className="row">
+                          <table className="table table-striped table-bordered tableSocial">
+                            <thead>
+                              <tr>
+                                <th scope="col" colSpan={3}>
+                                  {item.pregunta}
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
                         <div className="row">
                           <div key={index} className="chartSocial col">
-                            <CharSocial data={item} />
+                            <ChartSocial data={item} />
                           </div>
 
                           <div className="col">
-                            <p>Tabla de Resultados</p>
-                            <table className="table table-striped table-bordered">
+                            <br />
+                            <table className="table table-striped table-bordered tableSocialw">
                               <thead>
+                                <tr>
+                                  <th scope="col" colSpan={3}>
+                                    Tabla de Resultados
+                                  </th>
+                                </tr>
                                 <tr>
                                   <th scope="col">Respuesta</th>
                                   <th scope="col">%</th>
@@ -332,9 +373,22 @@ const Resultados = () => {
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.respuestas.map(function(res, indexRes) {
+                                {_orderBy(
+                                  item.respuestas,
+                                  ["porcentaje", "numeroVotos", "respuesta"],
+                                  ["desc", "desc", "asc"]
+                                ).map(function(res, indexRes) {
                                   return (
-                                    <tr key={indexRes}>
+                                    <tr
+                                      key={indexRes}
+                                      className={
+                                        indexRes === 0 ||
+                                        indexRes === 1 ||
+                                        indexRes === 2
+                                          ? "table-success font-weight-bold"
+                                          : ""
+                                      }
+                                    >
                                       <td>{res.respuesta}</td>
                                       <td className="tdWidth">
                                         {res.porcentaje} %
@@ -346,7 +400,7 @@ const Resultados = () => {
                               </tbody>
                             </table>
                           </div>
-                        </div>{" "}
+                        </div>
                       </div>
                     );
                   })}
@@ -376,13 +430,18 @@ const Resultados = () => {
                         <ExpansionPanelDetails>
                           <div className="container">
                             <div key={index} className="row">
-                              <div className="col">
-                                <Chart data={item} />
+                              <div className="chartComunal col">
+                                <ChartComunal data={item} scheme="dark2" />
                               </div>
                               <div className="col">
-                                <p>Tabla de Resultados</p>
+                                <br />
                                 <table className="table table-striped table-bordered">
                                   <thead>
+                                    <tr>
+                                      <th scope="col" colSpan={3}>
+                                        Tabla de Resultados
+                                      </th>
+                                    </tr>
                                     <tr>
                                       <th scope="col">Respuesta</th>
                                       <th scope="col">%</th>
@@ -390,12 +449,24 @@ const Resultados = () => {
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    {item.respuestas.map(function(
-                                      res,
-                                      indexRes
-                                    ) {
+                                    {_orderBy(
+                                      item.respuestas,
+                                      [
+                                        "porcentaje",
+                                        "numeroVotos",
+                                        "respuesta"
+                                      ],
+                                      ["desc", "desc", "asc"]
+                                    ).map(function(res, indexRes) {
                                       return (
-                                        <tr key={indexRes}>
+                                        <tr
+                                          key={indexRes}
+                                          className={
+                                            indexRes === 0
+                                              ? "table-success font-weight-bold"
+                                              : ""
+                                          }
+                                        >
                                           <td>{res.respuesta}</td>
                                           <td className="tdWidth">
                                             {res.porcentaje} %

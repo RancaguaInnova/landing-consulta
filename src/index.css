@@ -100,9 +100,26 @@ code {
   min-width: 320px;
   height: auto;
 }
+.chartComunal {
+  min-height: 500px;
+  display: inline-block;
+  min-width: 320px;
+  height: auto;
+}
+
 .MuiExpansionPanelDetails-root {
   background: ghostwhite;
   color: #000;
+}
+.MuiBox-root {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.tableSocialw {
+  width: 97%;
+}
+.minhe {
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {

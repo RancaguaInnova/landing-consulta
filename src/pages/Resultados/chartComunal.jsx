@@ -1,5 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import { ResponsivePie } from "@nivo/pie";
+import _orderBy from "lodash/orderBy";
 
 const MyResponsivePie = props => {
   var data = props.data.respuestas.map(function(item, index) {
@@ -10,17 +11,20 @@ const MyResponsivePie = props => {
     };
     return r;
   });
+  data = _orderBy(data, ["value", "label"], ["desc", "asc"]);
 
   return (
     <ResponsivePie
       data={data}
-      margin={{ top: 20, right: 20, bottom: 110, left: 20 }}
-      innerRadius={0.45}
-      colors={{ scheme: props.scheme }}
-      borderWidth={1}
+      margin={{ top: 20, right: 20, bottom: 170, left: 20 }}
+      innerRadius={0.2}
       sortByValue={true}
+      padAngle={4}
       startAngle={-45}
       enableRadialLabels={false}
+      colors={{ scheme: "set3" }}
+      borderWidth={1}
+      borderColor={{ theme: "labels.text.fill" }}
       sliceLabel={function(e) {
         return e.value + "%";
       }}
@@ -33,10 +37,10 @@ const MyResponsivePie = props => {
         {
           anchor: "bottom",
           direction: "column",
-          translateY: 96,
-          itemWidth: 195,
-          itemHeight: 24,
-          itemTextColor: "#999",
+          translateY: 160,
+          itemWidth: 280,
+          itemHeight: 20,
+          itemTextColor: "#000",
           symbolSize: 18,
           symbolShape: "circle",
           effects: [
