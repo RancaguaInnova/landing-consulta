@@ -5,6 +5,7 @@ const config = {
   projectId: process.env.REACT_APP_PROJECTID
 };
 firebase.initializeApp(config);
-var db = firebase.database();
-//const consultaCiudanaRef = databaseRef.collection("consulta-ciudana");
+
+var db = firebase;
+
 export default db;

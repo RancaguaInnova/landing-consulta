@@ -34,3 +34,16 @@
   margin-top: 7px;
   margin-bottom: 7px;
 }
+.tdWidth {
+  min-width: 60px;
+}
+.marginBottomApp {
+}
+.tooltip-wrap {
+  z-index: 6000;
+}
+
+.chart {
+  min-height: 300px;
+  width: 100%;
+}

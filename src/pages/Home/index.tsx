@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Map from 'components/Map'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+
 import Vote from 'components/Vote'
 import { logPageView, logEvent } from 'components/analytics'
 import getPlaces from 'components/Map/getPlaces'
@@ -21,10 +20,11 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { GoSearch } from 'react-icons/go';
-import db from 'components/FirebaseConfig'
+import Firebase from 'components/FirebaseConfig'
 import _replace from 'lodash/replace'
 const { validate } = require('rut.js')
 
+const db = Firebase.database();
 const useStyles = makeStyles(theme => ({
 	texto: {
 		maxWidth: 594,
@@ -178,7 +178,6 @@ const Home: React.FC = () => {
 
 	return (
 		<div>
-			<Header />
 			<div className='container mt-4 Centro'>
 				<h2 className='title'>Consulta Ciudadana Municipal Rancagua 2019.</h2>
 			</div>
@@ -383,7 +382,6 @@ const Home: React.FC = () => {
 						</Fade>
 					)}
 				</Popper></div>
-			<Footer />
 		</div >
 	)
 }

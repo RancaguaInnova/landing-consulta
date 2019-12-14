@@ -14,7 +14,10 @@ body {
   text-align: center !important;
   text-transform: uppercase;
 }
-
+.title2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+}
 .btn-danger {
   color: #fff;
   background-color: #cb1d49;
@@ -68,4 +71,50 @@ code {
 }
 .margin {
   margin-top: 20px;
+}
+
+.chartBar {
+  width: 100%;
+  height: 400px;
+}
+
+.TextoGrafico {
+  width: 100%;
+}
+.MuiTab-wrapper {
+  font-weight: bold !important;
+  color: #000;
+}
+
+.col {
+  padding: 0 !important;
+}
+.div100 {
+  width: 100%;
+  display: inline-block;
+  min-width: 320px;
+}
+.chartSocial {
+  min-height: 600px;
+  display: inline-block;
+  min-width: 320px;
+  height: auto;
+}
+.MuiExpansionPanelDetails-root {
+  background: ghostwhite;
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .MuiExpansionPanelDetails-root {
+    padding: 0 !important;
+    display: inline-grid !important;
+  }
+  .chart {
+    min-height: 300px;
+    width: 100%;
+    display: inline-block;
+    min-width: 320px;
+    height: auto;
+  }
 }

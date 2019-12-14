@@ -1,6 +1,7 @@
 import React, { Suspense } from "react"
 import { Router, RouteComponentProps } from "@reach/router"
-
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 import Loading from "components/Loading"
 import "./App.css"
 
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   initGA()
   return (
     <div className="App">
+      <Header></Header>
       <Suspense fallback={<Loading />}>
         <Router>
           <RouterPage path="/" pageComponent={<Home />} default />
@@ -21,6 +23,7 @@ const App: React.FC = () => {
 
         </Router>
       </Suspense>
+      <Footer></Footer>
     </div>
   )
 }

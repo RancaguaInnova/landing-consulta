@@ -1,99 +1,427 @@
-import React, { Fragment } from "react";
-import Header from "components/Header";
-import Footer from "components/Footer";
-import GraficoPregunta1 from "./graficos1";
+import React, { Fragment, useState, useEffect } from "react";
+
+import Chart from "./chart";
+import NivoChart from "./nivoChart";
+
+import CharSocial from "./chartSocial";
+import Firebase from "components/FirebaseConfig";
+import PropTypes from "prop-types";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import SwipeableViews from "react-swipeable-views";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+import { purple } from "@material-ui/core/colors";
+import Button from "@material-ui/core/Button";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: purple[500] }, // Purple and green play nicely together.
+    secondary: { main: "#000" } // This is just green.A700 as hex.
+  }
+});
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </Typography>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
+};
+
+function a11yProps(index) {
+  return {
+    id: `full-width-tab-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`
+  };
+}
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100%"
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(12),
+    fontWeight: theme.typography.fontWeightBold
+  },
+  sumaryInstitucional: {
+    background: "#d5bcd9",
+    fontWeight: theme.typography.fontWeightBold
+  },
+  sumarySocial: {
+    background: "#fce1c6",
+    fontWeight: theme.typography.fontWeightBold
+  },
+  sumaryComunal: {
+    background: "#e0f1f9",
+    fontWeight: theme.typography.fontWeightBold
+  },
+  tabInstitucional: {
+    background: "#d5bcd9"
+  },
+  tabSocial: {
+    background: "#fce1c6"
+  },
+  tabComunal: {
+    background: "#e0f1f9"
+  },
+  ExpansionPanelDetails: {
+    padding: 0
+  }
+}));
+
 const Resultados = () => {
+  const [idPlace, setIdPlace] = useState("100");
+  const [Place, setPlace] = useState(null);
+  const [Votos, setVotos] = useState(null);
+
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState("panel0");
+
+  const theme2 = useTheme();
+  const [value, setValue] = React.useState(0);
+
+  const handleChangeTab = (event, newValue) => {
+    console.log(newValue);
+    if (newValue === 0) {
+      setExpanded("panel0");
+    } else if (newValue === 1) {
+      setExpanded("panelSocial0");
+    } else if (newValue === 2) {
+      setExpanded("panelComunal0");
+    }
+    setValue(newValue);
+  };
+
+  const handleChangeTabIndex = index => {
+    setValue(index);
+  };
+  const handleChange = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  useEffect(() => {
+    newData();
+    votosData();
+  }, []);
+
+  const newData = () => {
+    var db = Firebase.firestore();
+    db.collection("Resultados")
+      .where("idPlace", "==", idPlace)
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          let data = doc.data();
+          setPlace(data);
+        });
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
+      });
+  };
+  const votosData = () => {
+    var db = Firebase.firestore();
+    db.collection("Votos")
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          let Votos = doc.data();
+          console.log("Votos", Votos);
+          setVotos(Votos);
+        });
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
+      });
+  };
+
   return (
     <Fragment>
-      <Header />
       <div>
+        <br />
+        <h4 className="title">Pagina en construcción</h4>
         <h4 className="title">
           Resultados Consulta Ciudadana Municipal Rancagua 2019.
         </h4>
-      </div>
-      <div className="container">
-        <div className="row">filtros</div>
-        <div className="row">
-          <div className="col-sm">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">
-                  ¿Esta de acuerdo o en desacuerdo con que Chile tenga una nueva
-                  Constitución?
-                </h5>
-                <div className="input-group mb-3">
-                  <div className="input-group-prepend">
-                    <label
-                      className="input-group-text"
-                      for="inputGroupSelect01"
-                    >
-                      Lugar
-                    </label>
-                  </div>
-                  <select className="custom-select" id="inputGroupSelect01">
-                    <option className>Todos</option>
-                    <option className="1">Colegio 1</option>
-                    <option className="2">Colegio 2</option>
-                    <option className="3">Colegio 3</option>
-                  </select>
-                </div>
-                <GraficoPregunta1 />
-                <p />
-                <div>
-                  <p>Tabla de Resultados</p>
-                  <table className="table table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th scope="col">Respuesta</th>
-                        <th scope="col">%</th>
-                        <th scope="col">Número de Votos</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">Si</th>
-                        <td>68</td>
-                        <td>54222</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">No</th>
-                        <td>32</td>
-                        <td>12222</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Pregunta 2</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Pregunta 3</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
+        <div className="container mt-4 Centro">
+          <div className="col">
+            El domingo 15 de diciembre de 2019 se realizó la histórica Consulta
+            Ciudadana Municipal Rancagua 2019, en esta oportunidad cada vecino
+            votó por los temas que consideraba relevantes para la comuna y el
+            país. La votación se hizo en forma presencial pero con voto digital
+            y para las personas de la tercera edad y aquellos que requerían
+            asistencia se facilitó un voto en papel pero con registro digital.
+            La participación de esta consulta ciudadana fue la siguiente:
           </div>
         </div>
-      </div>
 
-      <Footer />
+        {Votos && (
+          <div className="container mt-4 Centro">
+            <div className="col">
+              <table className="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Tipo Voto</th>
+                    <th scope="col">N° Votos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Votos digitales </td>
+                    <td className="tdWidth">{Votos.digitales}</td>
+                  </tr>
+                  <tr>
+                    <td>Votos físicos (papel) </td>
+                    <td className="tdWidth">{Votos.papel}</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">TOTAL DE VOTOS VALIDAMENTE EMITIDOS </th>
+                    <td className="tdWidth">{Votos.total}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+        <br />
+        <div>
+          <div className="title2">
+            Se realizaron 3 votos: Institucional, Social y Comunal y los
+            resultados son los siguientes:
+          </div>
+        </div>
+        <div>
+          <ThemeProvider theme={theme}>
+            <AppBar position="static" color="default">
+              <Tabs
+                value={value}
+                onChange={handleChangeTab}
+                indicatorColor="secondary"
+                textColor="secondary"
+                variant="fullWidth"
+              >
+                <Tab
+                  className={classes.tabInstitucional}
+                  label="Institucional"
+                  {...a11yProps(0)}
+                />
+                <Tab
+                  className={classes.tabSocial}
+                  label="Social"
+                  {...a11yProps(1)}
+                />
+                <Tab
+                  className={classes.tabComunal}
+                  label="Comunal"
+                  {...a11yProps(2)}
+                />
+              </Tabs>
+            </AppBar>
+          </ThemeProvider>
+          <SwipeableViews
+            axis={theme2.direction === "rtl" ? "x-reverse" : "x"}
+            index={value}
+            onChangeIndex={handleChangeTabIndex}
+          >
+            <TabPanel value={value} index={0} dir={theme2.direction}>
+              {Place && Place.intitucional && Place.intitucional.length > 0 ? (
+                <div className="minhe">
+                  {Place.intitucional.map(function(item, index) {
+                    return (
+                      <ExpansionPanel
+                        expanded={expanded === "panel" + index}
+                        onChange={handleChange("panel" + index)}
+                        key={index}
+                      >
+                        <ExpansionPanelSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          className={classes.sumaryInstitucional}
+                        >
+                          <Typography className={classes.heading}>
+                            {item.pregunta}
+                          </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                          <div key={index} className="chart">
+                            <NivoChart data={item} />
+                          </div>
+                          <div className="container">
+                            <div className="row">
+                              <div className="col">
+                                <p>Tabla de Resultados</p>
+                                <table className="table table-striped table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Respuesta</th>
+                                      <th scope="col">%</th>
+                                      <th scope="col">N° Votos</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {item.respuestas.map(function(
+                                      res,
+                                      indexRes
+                                    ) {
+                                      return (
+                                        <tr key={indexRes}>
+                                          <td>{res.respuesta}</td>
+                                          <td className="tdWidth">
+                                            {res.porcentaje} %
+                                          </td>
+                                          <td>{res.numeroVotos}</td>
+                                        </tr>
+                                      );
+                                    })}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </ExpansionPanelDetails>
+                      </ExpansionPanel>
+                    );
+                  })}
+                </div>
+              ) : (
+                ""
+              )}
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme2.direction}>
+              {Place && Place.social && Place.social.length > 0 ? (
+                <div className="minhe">
+                  {Place.social.map(function(item, index) {
+                    return (
+                      <div key={index}>
+                        <div className="row"> {item.pregunta}</div>
+                        <div className="row">
+                          <div key={index} className="chartSocial col">
+                            <CharSocial data={item} />
+                          </div>
+
+                          <div className="col">
+                            <p>Tabla de Resultados</p>
+                            <table className="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Respuesta</th>
+                                  <th scope="col">%</th>
+                                  <th scope="col">N° Votos</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.respuestas.map(function(res, indexRes) {
+                                  return (
+                                    <tr key={indexRes}>
+                                      <td>{res.respuesta}</td>
+                                      <td className="tdWidth">
+                                        {res.porcentaje} %
+                                      </td>
+                                      <td>{res.numeroVotos}</td>
+                                    </tr>
+                                  );
+                                })}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>{" "}
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                ""
+              )}
+            </TabPanel>
+            <TabPanel value={value} index={2} dir={theme2.direction}>
+              {Place && Place.comunal && Place.comunal.length > 0 ? (
+                <div className="minhe">
+                  {Place.comunal.map(function(item, index) {
+                    return (
+                      <ExpansionPanel
+                        expanded={expanded === "panelComunal" + index}
+                        onChange={handleChange("panelComunal" + index)}
+                        key={index}
+                      >
+                        <ExpansionPanelSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          className={classes.sumaryComunal}
+                        >
+                          <Typography className={classes.heading}>
+                            {item.pregunta}
+                          </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                          <div className="container">
+                            <div key={index} className="row">
+                              <div className="col">
+                                <Chart data={item} />
+                              </div>
+                              <div className="col">
+                                <p>Tabla de Resultados</p>
+                                <table className="table table-striped table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Respuesta</th>
+                                      <th scope="col">%</th>
+                                      <th scope="col">N° Votos</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {item.respuestas.map(function(
+                                      res,
+                                      indexRes
+                                    ) {
+                                      return (
+                                        <tr key={indexRes}>
+                                          <td>{res.respuesta}</td>
+                                          <td className="tdWidth">
+                                            {res.porcentaje} %
+                                          </td>
+                                          <td>{res.numeroVotos}</td>
+                                        </tr>
+                                      );
+                                    })}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </ExpansionPanelDetails>
+                      </ExpansionPanel>
+                    );
+                  })}
+                </div>
+              ) : (
+                ""
+              )}
+            </TabPanel>
+          </SwipeableViews>
+        </div>
+      </div>
+      <div />
     </Fragment>
   );
 };
