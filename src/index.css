@@ -121,6 +121,12 @@ code {
 .minhe {
   overflow: hidden;
 }
+.tabledrawer {
+  width: 90%;
+}
+.verMas {
+  background: gainsboro !important;
+}
 
 @media (max-width: 600px) {
   .MuiExpansionPanelDetails-root {

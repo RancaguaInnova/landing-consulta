@@ -316,7 +316,7 @@ const Home: React.FC = () => {
 				<div className='Centro'>
 					<Map />
 				</div>
-				<hr />
+				{/* 				<hr />
 				<p />
 				<div className='Centro'>
 					<h4 className='title'>VOLUNTARIOS</h4>
@@ -335,7 +335,8 @@ const Home: React.FC = () => {
 						Inscripción de voluntarios
 							</button>
 
-				</div>
+</div> */}
+
 			</div>
 			<Fab aria-label="Wsp" className={classes.fab} onClick={handleClick('left-end')}>
 				<FaWhatsapp size={24} color='white' ></FaWhatsapp>

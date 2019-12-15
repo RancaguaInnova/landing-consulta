@@ -10,6 +10,8 @@ import { initGA } from "components/analytics"
 const Home = React.lazy(() => import("pages/Home"))
 const IframeVoluntarios = React.lazy(() => import("pages/IframeVoluntarios"))
 const Resultados = React.lazy(() => import("pages/Resultados"))
+const Varios = React.lazy(() => import("pages/Varios"))
+
 const App: React.FC = () => {
   initGA()
   return (
@@ -20,6 +22,7 @@ const App: React.FC = () => {
           <RouterPage path="/" pageComponent={<Home />} default />
           <RouterPage path="/voluntarios" pageComponent={<IframeVoluntarios />} />
           <RouterPage path="/resultados" pageComponent={<Resultados />} />
+          <RouterPage path="/varios" pageComponent={<Varios />} />
 
         </Router>
       </Suspense>

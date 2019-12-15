@@ -19,6 +19,10 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { purple } from "@material-ui/core/colors";
 import _orderBy from "lodash/orderBy";
+import TablePlaces from "./tablePlaces";
+import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
+
 const theme = createMuiTheme({
   palette: {
     primary: { main: purple[500] }, // Purple and green play nicely together.
@@ -159,6 +163,23 @@ const Resultados = () => {
         console.log("Error getting documents: ", error);
       });
   };
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false
+  });
+
+  const toggleDrawer = (side, open) => event => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [side]: open });
+  };
 
   return (
     <Fragment>
@@ -209,7 +230,7 @@ const Resultados = () => {
           </div>
         )}
         <br />
-        <div>
+        <div className="container mt-5 Centro">
           <div className="title2">
             Se realizaron 3 votos: Institucional, Social y Comunal y los
             resultados son los siguientes:
@@ -325,6 +346,27 @@ const Resultados = () => {
                                 </table>
                               </div>
                             </div>
+                            <div className="row">
+                              <div className="col">
+                                <ExpansionPanel>
+                                  <ExpansionPanelSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    className="verMas"
+                                  >
+                                    <Typography>
+                                      Ver detalle por lugares de votación
+                                    </Typography>
+                                  </ExpansionPanelSummary>
+                                  <ExpansionPanelDetails>
+                                    <div className="container">
+                                      <div className="row">
+                                        <TablePlaces places={item.lugares} />
+                                      </div>
+                                    </div>
+                                  </ExpansionPanelDetails>
+                                </ExpansionPanel>
+                              </div>
+                            </div>
                           </div>
                         </ExpansionPanelDetails>
                       </ExpansionPanel>
@@ -399,6 +441,23 @@ const Resultados = () => {
                                 })}
                               </tbody>
                             </table>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col">
+                            <ExpansionPanel>
+                              <ExpansionPanelSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                className="verMas"
+                              >
+                                <Typography>
+                                  Ver detalle por lugares de votación
+                                </Typography>
+                              </ExpansionPanelSummary>
+                              <ExpansionPanelDetails>
+                                <TablePlaces places={item.lugares} />
+                              </ExpansionPanelDetails>
+                            </ExpansionPanel>
                           </div>
                         </div>
                       </div>
@@ -477,6 +536,23 @@ const Resultados = () => {
                                     })}
                                   </tbody>
                                 </table>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col">
+                                <ExpansionPanel>
+                                  <ExpansionPanelSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    className="verMas"
+                                  >
+                                    <Typography>
+                                      Ver detalle por lugares de votación
+                                    </Typography>
+                                  </ExpansionPanelSummary>
+                                  <ExpansionPanelDetails>
+                                    <TablePlaces places={item.lugares} />
+                                  </ExpansionPanelDetails>
+                                </ExpansionPanel>
                               </div>
                             </div>
                           </div>
