@@ -25,7 +25,7 @@ const tablePlaces = ({ places, ...props }) => {
               index
             ) {
               return (
-                <tr>
+                <tr key={index}>
                   <td className="text-left">{item.sector}</td>
                   <td className="text-left">{item.name}</td>
                   <td className="text-left">
@@ -43,7 +43,7 @@ const tablePlaces = ({ places, ...props }) => {
                           ["desc", "desc", "asc"]
                         ).map(function(res, rin) {
                           return (
-                            <tr>
+                            <tr key={rin}>
                               <td>{res.respuesta}</td>
                               <td>{res.porcentaje}</td>
                             </tr>

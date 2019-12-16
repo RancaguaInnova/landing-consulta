@@ -185,7 +185,6 @@ const Resultados = () => {
     <Fragment>
       <div>
         <br />
-        <h4 className="title">Pagina en construcción</h4>
         <h4 className="title">
           Resultados Consulta Ciudadana Municipal Rancagua 2019.
         </h4>
@@ -219,6 +218,14 @@ const Resultados = () => {
                   <tr>
                     <td>Votos físicos (papel) </td>
                     <td className="tdWidth">{Votos.papel}</td>
+                  </tr>
+                  <tr>
+                    <td>Votos Nulos (papel) </td>
+                    <td className="tdWidth">{Votos.papelNulo}</td>
+                  </tr>
+                  <tr>
+                    <td>Votos Blancos (papel) </td>
+                    <td className="tdWidth">{Votos.papelBlancos}</td>
                   </tr>
                   <tr>
                     <th scope="col">TOTAL DE VOTOS VALIDAMENTE EMITIDOS </th>
@@ -346,7 +353,7 @@ const Resultados = () => {
                                 </table>
                               </div>
                             </div>
-                            <div className="row">
+                            {/*                             <div className="row">
                               <div className="col">
                                 <ExpansionPanel>
                                   <ExpansionPanelSummary
@@ -366,7 +373,7 @@ const Resultados = () => {
                                   </ExpansionPanelDetails>
                                 </ExpansionPanel>
                               </div>
-                            </div>
+                                  </div> */}
                           </div>
                         </ExpansionPanelDetails>
                       </ExpansionPanel>
@@ -443,7 +450,7 @@ const Resultados = () => {
                             </table>
                           </div>
                         </div>
-                        <div className="row">
+                        {/*                         <div className="row">
                           <div className="col">
                             <ExpansionPanel>
                               <ExpansionPanelSummary
@@ -459,7 +466,7 @@ const Resultados = () => {
                               </ExpansionPanelDetails>
                             </ExpansionPanel>
                           </div>
-                        </div>
+                              </div> */}
                       </div>
                     );
                   })}
@@ -538,7 +545,7 @@ const Resultados = () => {
                                 </table>
                               </div>
                             </div>
-                            <div className="row">
+                            {/* <div className="row">
                               <div className="col">
                                 <ExpansionPanel>
                                   <ExpansionPanelSummary
@@ -554,7 +561,7 @@ const Resultados = () => {
                                   </ExpansionPanelDetails>
                                 </ExpansionPanel>
                               </div>
-                            </div>
+                                  </div> */}
                           </div>
                         </ExpansionPanelDetails>
                       </ExpansionPanel>

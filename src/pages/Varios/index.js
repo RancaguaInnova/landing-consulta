@@ -12,7 +12,7 @@ const Varios = () => {
 
   const newData = () => {
     var db = Firebase.firestore();
-    db.collection("ResultadoNew")
+    db.collection("Resultados")
       .where("idPlace", "==", idPlace)
       .get()
       .then(function(querySnapshot) {
@@ -28,6 +28,60 @@ const Varios = () => {
   };
 
   const cargaData = () => {
+    /* Place.intitucional.map(function(item, index) {
+      item.respuestas.map(function(res, indexRes) {
+        res.porcentaje = 0;
+        res.numeroVotos = 0;
+        return res;
+      });
+      item.lugares.map(function(res, indexRes) {
+        res.respuestas.map(function(resLugares, rin) {
+          resLugares.porcentaje = 0;
+          resLugares.numeroVotos = 0;
+          return res;
+        });
+
+        return res;
+      });
+      return item;
+    });
+
+    Place.social.map(function(item, index) {
+      item.respuestas.map(function(res, indexRes) {
+        res.porcentaje = 0;
+        res.numeroVotos = 0;
+        return res;
+      });
+      item.lugares.map(function(res, indexRes) {
+        res.respuestas.map(function(resLugares, rin) {
+          resLugares.porcentaje = 0;
+          resLugares.numeroVotos = 0;
+          return res;
+        });
+
+        return res;
+      });
+      return item;
+    });
+    Place.comunal.map(function(item, index) {
+      item.respuestas.map(function(res, indexRes) {
+        res.porcentaje = 0;
+        res.numeroVotos = 0;
+        return res;
+      });
+      item.lugares.map(function(res, indexRes) {
+        res.respuestas.map(function(resLugares, rin) {
+          resLugares.porcentaje = 0;
+          resLugares.numeroVotos = 0;
+          return res;
+        });
+
+        return res;
+      });
+      return item;
+    });
+    console.log("Seteo limpio de resultados", Place);
+
     var db = Firebase.firestore();
     db.collection("Resultados")
       .add(Place)
@@ -37,6 +91,7 @@ const Varios = () => {
       .catch(function(error) {
         console.error("Error adding document: ", error);
       });
+      */
   };
 
   return (

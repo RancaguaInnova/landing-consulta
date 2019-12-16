@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <RouterPage path="/" pageComponent={<Home />} default />
           <RouterPage path="/voluntarios" pageComponent={<IframeVoluntarios />} />
           <RouterPage path="/resultados" pageComponent={<Resultados />} />
-          <RouterPage path="/varios" pageComponent={<Varios />} />
+          {/* <RouterPage path="/varios" pageComponent={<Varios />} /> */}
 
         </Router>
       </Suspense>
