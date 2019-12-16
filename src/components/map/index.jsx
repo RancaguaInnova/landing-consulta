@@ -6,7 +6,6 @@ const LocalesMap = props => {
   return (
     <div>
       <div className="Map mt-5">
-
         <Map></Map>
       </div>
     </div>

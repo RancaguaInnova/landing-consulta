@@ -1,7 +1,7 @@
 import React, { Suspense } from "react"
 import { Router, RouteComponentProps } from "@reach/router"
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+import Header from "components/Header"
+import Footer from "components/Footer"
 import Loading from "components/Loading"
 import "./App.css"
 
@@ -23,7 +23,6 @@ const App: React.FC = () => {
           <RouterPage path="/voluntarios" pageComponent={<IframeVoluntarios />} />
           <RouterPage path="/resultados" pageComponent={<Resultados />} />
           {/* <RouterPage path="/varios" pageComponent={<Varios />} /> */}
-
         </Router>
       </Suspense>
       <Footer></Footer>
