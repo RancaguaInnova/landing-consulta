@@ -1,22 +1,141 @@
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-		'Droid Sans', 'Helvetica Neue', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .title {
-	font-weight: bold;
-	color: #cb1d49;
+  font-weight: bold;
+  color: #cb1d49;
+  font-size: 1.5rem;
+  text-align: center !important;
+  text-transform: uppercase;
 }
-
+.title2 {
+  margin-bottom: 30px;
+  font-weight: bold;
+}
 .btn-danger {
-	color: #fff;
-	background-color: #cb1d49;
-	border-color: #cb1d49;
+  color: #fff;
+  background-color: #cb1d49;
+  border-color: #cb1d49;
+}
+.card-title {
+  color: #213d63;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.tituloPlace {
+  color: #cb1d49;
+  font-size: 1.1rem;
+}
+.textoMarker {
+  color: #213d63;
+  padding-left: 10px;
+  font-size: 0.8rem;
+}
+.infoMarker {
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.infoMarkerMap {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.justify {
+  text-align: justify;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.TextoIz {
+  text-align: left !important;
+}
+.imagen {
+  width: 80%;
+  margin: 0 auto;
+}
+.Centro {
+  text-align: center !important;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+.margin {
+  margin-top: 20px;
+}
+
+.chartBar {
+  width: 100%;
+  height: 400px;
+}
+
+.TextoGrafico {
+  width: 100%;
+}
+.MuiTab-wrapper {
+  font-weight: bold !important;
+  color: #000;
+}
+
+.col {
+  padding: 0 !important;
+}
+.div100 {
+  width: 100%;
+  display: inline-block;
+  min-width: 320px;
+}
+.chartSocial {
+  min-height: 600px;
+  display: inline-block;
+  min-width: 320px;
+  height: auto;
+}
+.chartComunal {
+  min-height: 500px;
+  display: inline-block;
+  min-width: 320px;
+  height: auto;
+}
+
+.MuiExpansionPanelDetails-root {
+  background: ghostwhite;
+  color: #000;
+}
+.MuiBox-root {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.tableSocialw {
+  width: 97%;
+}
+.minhe {
+  overflow: hidden;
+}
+.tabledrawer {
+  width: 90%;
+}
+.verMas {
+  background: gainsboro !important;
+}
+
+@media (max-width: 600px) {
+  .MuiExpansionPanelDetails-root {
+    padding: 0 !important;
+    display: inline-grid !important;
+  }
+  .chart {
+    min-height: 300px;
+    width: 100%;
+    display: inline-block;
+    min-width: 320px;
+    height: auto;
+  }
 }
