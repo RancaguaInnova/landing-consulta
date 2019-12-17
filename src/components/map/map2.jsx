@@ -19,7 +19,6 @@ function Map() {
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
 
-  console.log(process.env.REACT_APP_MAP_KEY);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_MAP_KEY
   });
